@@ -19,10 +19,12 @@ int main(){
     while (b==0){
         
         int panding=0;
+        printf(">");
+
         scanf("%s",a);
         if (strcmp(a,"prices")==0){
             printf("%-20s %s %s\n","Item","No.", "Pri.");
-            printf("---------\n");
+            printf("--------------------------------\n");
             for (int i=0;i<3;i++){
             
                 printf("%-20s %s %.2f\n",market[i].Name,market[i].Code,market[i].Price);}
@@ -35,8 +37,9 @@ int main(){
                 if (strcmp(a,market[i].Code)==0){
                     printf("%s,%.2f\n",market[i].Name,market[i].Price);
                     panding=1;
-
                     break;
+
+                    
                 }
             }
                 if(panding==0){
