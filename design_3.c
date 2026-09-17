@@ -89,15 +89,7 @@ int main(){
             b=1;
         }
     
-        for (int i=0;i<3;i++){
-            if (market[i].Num!=0){
-                market[i].Totol_num+=market[i].Num;
-                market[i].Num=0;
-
-                printf("%-20s %.2f x %d = %.2f\n",market[i].Name,market[i].Price,market[i].Totol_num,market[i].Price*market[i].Totol_num);
-                
-            }
-        }
+        
     
     
 
@@ -117,7 +109,7 @@ int main(){
         printf("--------------------------------\n");
         printf("%s                %.2f\n","Total",total);
         total=0.0;
-    
+        continue;
     }
     if (strcmp(a,"drop")==0){
         
@@ -128,7 +120,7 @@ int main(){
             }
 
         }
-        
+        continue;
     
     }
     if (strcmp(a,"print")==0){
@@ -147,8 +139,18 @@ int main(){
         printf("--------------------------------\n");
         printf("%s                %.2f\n","Total",total);
         total=0.0;
+        continue;
     
     }
+    for (int i=0;i<3;i++){
+            if (market[i].Num!=0){
+                market[i].Totol_num+=market[i].Num;
+                market[i].Num=0;
+
+                printf("%-20s %.2f x %d = %.2f\n",market[i].Name,market[i].Price,market[i].Totol_num,market[i].Price*market[i].Totol_num);
+                
+            }
+        }
 
 }
     return 0;
