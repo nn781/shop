@@ -13,6 +13,7 @@ int main(){
     char a[100];
     int b=0; 
     int c;
+    float total=0.00;
     
     
     struct Goods market[3]={
@@ -33,7 +34,7 @@ int main(){
             char* p;
     
             
-            printf(a);
+            
             
         if (isalpha(a[0])){
             break;
@@ -100,7 +101,55 @@ int main(){
     
     
 
+    if (strcmp(a,"checkout")==0){
+        printf("%s\n%-20s %s   %s %s\n","receipt","Item", "Pri.","Qty","Amount");
+        printf("--------------------------------\n");
+        for (int i=0;i<3;i++){
+            if (market[i].Totol_num!=0){
+            
+
+                printf("%-20s %.2f x %d = %.2f\n",market[i].Name,market[i].Price,market[i].Totol_num,market[i].Price*market[i].Totol_num);
+                total+=market[i].Price*market[i].Totol_num;
+                market[i].Totol_num=0;
+            }
+
+        }
+        printf("--------------------------------\n");
+        printf("%s                %.2f\n","Total",total);
+        total=0.0;
     
+    }
+    if (strcmp(a,"drop")==0){
+        
+        for (int i=0;i<3;i++){
+            if (market[i].Totol_num!=0){
+            
+                market[i].Totol_num=0;
+            }
+
+        }
+        
+    
+    }
+    if (strcmp(a,"print")==0){
+        printf("%s\n%-20s %s   %s %s\n","receipt","Item", "Pri.","Qty","Amount");
+        printf("--------------------------------\n");
+        for (int i=0;i<3;i++){
+            if (market[i].Totol_num!=0){
+            
+
+                printf("%-20s %.2f x %d = %.2f\n",market[i].Name,market[i].Price,market[i].Totol_num,market[i].Price*market[i].Totol_num);
+                total+=market[i].Price*market[i].Totol_num;
+            
+            }
+
+        }
+        printf("--------------------------------\n");
+        printf("%s                %.2f\n","Total",total);
+        total=0.0;
+    
+    }
+
 }
     return 0;
 }
