@@ -53,7 +53,7 @@ int main(){
             else{
                 p=a;
             }
-            for (int i=0;i<3;i++){
+            for (int i=0;i<3;i++){//总结计数
                 if (strcmp(p,market[i].Code)==0){
                     if (sub){
                         market[i].Num-=1;
